@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use Session;
+use Carbon\Carbon;
 
 
 class TeachersController extends Controller
@@ -23,6 +24,10 @@ class TeachersController extends Controller
     public function teachers_login()
     {
         return view('login');
+    }
+    public function registration()
+    {
+        return view('registration');
     }
 
     function logout()
@@ -60,5 +65,35 @@ class TeachersController extends Controller
         } else {
             return back()->with('fail', 'This email is not register.');
         }
+    }
+
+    function registration_post(Request $request)
+    {
+        // print_r($request->email);
+        // exit();
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'pwd' => 'required'
+        ]);
+        $name = $request->name;
+        $email = $request->email;
+        $pwd = Hash::make($request->pwd);
+        // $user = TeachersController::create($data);
+        $user = DB::table('teachers_basic')->insert([
+            'name' => $name,
+            'email' => $email,
+            'pwd' => $pwd,
+            'last_logged_in' => Carbon::now(),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'status' => 1
+        ]);
+
+        if (!$user) {
+            return redirect(url('registration'))->with("error", "Registration Failed,try again");
+        }
+        return redirect(url('login'))->with("success", "Registration success, Login to access the app");
+
     }
 }

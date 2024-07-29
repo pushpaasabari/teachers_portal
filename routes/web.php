@@ -29,4 +29,6 @@ Route::get('/student_del/{id}/{student_name}/{subject}', [StudentController::cla
 
 Route::get('/result', [StudentController::class, 'result']);
 Route::post('/result', [StudentController::class, 'results']);
+Route::get('/registration', [TeachersController::class, 'registration']);
+Route::post('/registration', [TeachersController::class, 'registration_post']);
 
