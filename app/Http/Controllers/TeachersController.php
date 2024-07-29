@@ -23,7 +23,13 @@ class TeachersController extends Controller
 
     public function teachers_login()
     {
-        return view('login');
+        $data = DB::table('teachers_basic')->select('*')->get();
+        if (count($data) > 0) {
+            return view('login');
+        } else {
+            return view('registration');
+        }
+
     }
     public function registration()
     {
