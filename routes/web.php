@@ -25,4 +25,5 @@ Route::post('/create', [StudentController::class, 'create'])->middleware('isLogg
 Route::post('/get_student', [StudentController::class, 'get_student'])->middleware('isLoggedIn');
 Route::post('/student_post', [StudentController::class, 'student_post'])->middleware('isLoggedIn');
 Route::get('/student_del/{id}/{student_name}/{subject}', [StudentController::class, 'student_del'])->middleware('isLoggedIn');
+Route::get('/result', [StudentController::class, 'result']);
 

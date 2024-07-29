@@ -10,7 +10,7 @@
             <div class="modal-body">
                 {{-- <p>One fine body&hellip;</p> --}}
                 <form name="studentEditForm" id="studentEditForm" action="{{url('student_post')}}" method="post"
-                    enctype="multipart/form-data" onsubmit="return validateForm()">
+                    enctype="multipart/form-data" onsubmit="return validateeditForm()">
                     {{ csrf_field() }}
                     <div class="form-group offset-2 col-8">
                         <label>Name:</label>
@@ -19,7 +19,8 @@
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
                             <input type="hidden" name="stud_id" id="stud_id" class="form-control">
-                            <input type="text" name="student_name_edit" id="student_name" class="form-control">
+                            <input type="text" name="student_name_edit" id="student_name_edit" class="form-control"
+                                required>
                         </div>
                     </div>
                     <div class="form-group offset-2 col-8">
@@ -28,7 +29,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-server"></i></span>
                             </div>
-                            <input type="text" name="subject_edit" id="subject" class="form-control">
+                            <input type="text" name="subject_edit" id="subject_edit" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group offset-2 col-8">
@@ -37,7 +38,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-bar-chart"></i></span>
                             </div>
-                            <input type="number" name="mark_edit" id="mark" class="form-control">
+                            <input type="number" name="mark_edit" id="mark_edit" class="form-control" required>
                         </div>
                     </div>
             </div>

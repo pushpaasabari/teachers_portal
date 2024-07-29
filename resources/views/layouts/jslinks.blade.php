@@ -110,7 +110,7 @@
   }
 </script>
 <script>
-  function validateForm() {
+  function validateeditForm() {
     let x = document.forms["studentEditForm"]["student_name_edit"].value;
     let y = document.forms["studentEditForm"]["subject_edit"].value;
     let z = document.forms["studentEditForm"]["mark_edit"].value;

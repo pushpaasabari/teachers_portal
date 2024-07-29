@@ -108,6 +108,11 @@ class StudentController extends Controller
 
     }
 
+    public function result()
+    {
+        return view('result');
+    }
+
 
 }
 
