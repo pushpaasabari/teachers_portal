@@ -112,6 +112,22 @@ class StudentController extends Controller
     {
         return view('result');
     }
+    public function results(Request $request)
+    {
+        $request->validate([
+            'student_name' => 'required',
+        ]);
+        $student_name = $request->student_name;
+        $studentResult = DB::table('student')
+            ->select('*')
+            ->where('name', $student_name)
+            ->get();
+        if (count($studentResult) >= 1) {
+            return view('results', compact('studentResult', 'student_name'));
+        } else {
+            return back()->with('fail', 'Student name not match!');
+        }
+    }
 
 
 }

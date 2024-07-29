@@ -15,10 +15,10 @@
                 dataType: 'json',
                 success: function (response) {
                     // console.log(response);
-                    $('#student_name').val(response.student.name);
+                    $('#student_name_edit').val(response.student.name);
                     $('#stud_id').val(stud_id);
-                    $('#subject').val(response.student.subject);
-                    $('#mark').val(response.student.mark);
+                    $('#subject_edit').val(response.student.subject);
+                    $('#mark_edit').val(response.student.mark);
                 }
             });
     });

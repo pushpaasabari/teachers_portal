@@ -7,12 +7,12 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href=""><b>Student'S </b>Marks</a>
+            <a href=""><b>Student </b>Portal</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Result</p>
+                <p class="login-box-msg">Check Your Marks</p>
 
                 <form action="{{url('result')}}" name="StudentResult" method="post">
                     {{ csrf_field() }}
@@ -27,7 +27,7 @@
                     </div>
                     @endif
                     <div class="input-group mb-3">
-                        <input type="name" name="name" class="form-control" placeholder="Name" Required>
+                        <input type="student_name" name="student_name" class="form-control" placeholder="Name" Required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-chalkboard-teacher"></span>
@@ -55,7 +55,7 @@
                         <div class="col-8">
                         </div>
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Result</button>
+                            <button type="submit" class="btn btn-primary btn-block">Get Mark's</button>
                         </div>
                         <!-- /.col -->
                     </div>
